@@ -29,19 +29,19 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
-
+    console.log('Login attempt with email:', email);
     const user = await User.findOne({ where: { email } });
     if (!user) return res.status(404).json({ message: 'Usuario no encontrado' });
-
+    console.log('User found:', user.username);
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(401).json({ message: 'Credenciales inválidas' });
-
+    console.log('Password match for user:', user.username);
     const token = jwt.sign(
       { id: user.id, role: user.role },
       JWT_SECRET,
       { expiresIn: '1d' }
     );
-
+    console.log('JWT token generated for user:', user.username);
     res.status(200).json({
       message: 'Login exitoso',
       token,
