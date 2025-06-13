@@ -15,7 +15,7 @@ async function seedDatabase() {
     const users = await User.bulkCreate([
       {
         username: 'admin',
-        email: 'admin22@example.com',
+        email: 'admin@example.com',
         password: await bcrypt.hash("123456", 10),
         role: 'admin'
       },

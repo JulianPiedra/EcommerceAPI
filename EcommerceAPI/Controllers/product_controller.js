@@ -43,8 +43,10 @@ exports.createProduct = async (req, res) => {
   try {
     const { name, description, price } = req.body;
     const image = req.file ? req.file.buffer : null;
+    console.log(req.body, req.file);
+    console.log(image);
 
-    if (!name || !price || image === undefined) {
+    if (!name || !price || image === null) {
       return res.status(400).json({ message: 'Nombre, precio e imagen son requeridos' });
     }
 
@@ -52,7 +54,7 @@ exports.createProduct = async (req, res) => {
       name,
       description,
       price,
-      image: image ? `data:image/jpeg;base64,${image.toString('base64')}` : null
+      image: image
     });
 
     res.status(201).json(newProduct);

@@ -1,3 +1,10 @@
+.product-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
 .product-list{
     display: flex;
     flex-wrap: wrap;
@@ -16,6 +23,7 @@
 }
 .product-image{
     object-fit: cover;
+    width: 100%;
 }
 .product-name, 
 .product-description{
@@ -23,4 +31,27 @@
 }
 .product-price{
     font-size: 1.5em;
+}
+.pagination-info,
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+.pagination button{
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #0070f3;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.search-input{
+
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }

@@ -15,7 +15,7 @@ export default function ProductCard({ product }) {
                 src={imageSrc}
                 alt={name}
                 width={300}
-                height={200}    
+                height={200}
                 className="product-image"
             />
             <h2 className="product-name">{name}</h2>
