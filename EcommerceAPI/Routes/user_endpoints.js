@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/user_controller');
+const userController = require('../Controllers/user_controller');
 const { verifyToken, isAdmin } = require('../Middlewares/verify_token');
 
 // Obtener todos los usuarios (admin)

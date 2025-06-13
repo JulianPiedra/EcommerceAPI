@@ -12,6 +12,7 @@ app.use(express.json());
 app.use('/api/auth', require('./Routes/auth_endpoints'));
 app.use('/api/users', require('./Routes/user_endpoints'));
 app.use('/api/products', require('./Routes/product_endpoints'));
+app.use('/api/cart', require('./Routes/cart_endpoints'));
 
 sequelize.authenticate()
   .then(() => console.log('Conectado a la base de datos'))
