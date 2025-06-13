@@ -41,7 +41,7 @@ exports.getProductById = async (req, res) => {
 //  Crear producto (solo admin)
 exports.createProduct = async (req, res) => {
   try {
-    const { name, description, price, category } = req.body;
+    const { name, description, price } = req.body;
     const image = req.file ? req.file.buffer : null;
 
     if (!name || !price || image === undefined) {
@@ -52,7 +52,6 @@ exports.createProduct = async (req, res) => {
       name,
       description,
       price,
-      category,
       image: image ? `data:image/jpeg;base64,${image.toString('base64')}` : null
     });
 
@@ -65,7 +64,7 @@ exports.createProduct = async (req, res) => {
 // Editar producto (solo admin)
 exports.updateProduct = async (req, res) => {
   try {
-    const { name, description, price, category } = req.body;
+    const { name, description, price } = req.body;
     const image = req.file ? req.file.buffer : null;
 
     const product = await Product.findByPk(req.params.id);
@@ -74,7 +73,6 @@ exports.updateProduct = async (req, res) => {
     product.name = name ?? product.name;
     product.description = description ?? product.description;
     product.price = price ?? product.price;
-    product.category = category ?? product.category;
     if (image) product.image = image;
 
     await product.save();

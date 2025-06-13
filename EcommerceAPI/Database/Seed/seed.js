@@ -33,15 +33,11 @@ async function seedDatabase() {
         name: 'Laptop Gamer',
         description: 'Laptop de alto rendimiento para gaming.',
         price: 1200.00,
-        image_url: 'https://example.com/laptop.jpg',
-        category: 'Electronics'
       },
       {
         name: 'Mouse Inalámbrico',
         description: 'Mouse ergonómico inalámbrico.',
         price: 25.99,
-        image_url: 'https://example.com/mouse.jpg',
-        category: 'Accessories'
       }
     ]);
 

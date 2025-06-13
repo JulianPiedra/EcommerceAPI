@@ -5,7 +5,6 @@ module.exports = (sequelize, DataTypes) => {
     description: { type: DataTypes.TEXT },
     price: { type: DataTypes.DECIMAL(10, 2), allowNull: false },
     image: { type: DataTypes.BLOB('long') },
-    category: { type: DataTypes.STRING },
     created_at: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
     updated_at: { type: DataTypes.DATE, defaultValue: DataTypes.NOW }
   }, {

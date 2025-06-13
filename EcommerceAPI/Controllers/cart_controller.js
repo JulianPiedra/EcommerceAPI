@@ -34,7 +34,9 @@ exports.getUserCart = async (req, res) => {
       where: { user_id },
       include: [{ model: Product }]
     });
-
+    if (cartItems.length === 0) {
+      return res.status(404).json({ message: 'Carrito vacío' });
+    }
     const formatted = cartItems.map(item => {
       const p = item.Product;
       return {
