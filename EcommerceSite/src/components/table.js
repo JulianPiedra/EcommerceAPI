@@ -2,8 +2,7 @@
 
 import React, { useEffect } from 'react';
 import Link from "next/link";
-import '@/styles/table.css';
-import { useAuth } from '@/context/context';
+import { useAuth } from '@/context/auth_context';
 import { showToast } from '@/utils/show_message';
 import { useRouter } from 'next/navigation';
 

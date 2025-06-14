@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { getAllProducts } from '../services/product_service';
 import ProductCard from '@/components/product_cards';
 import Pagination from '@/components/pagination';
-import '@/styles/product_cards.css';
 
 export default function ProductosPage() {
   const [products, setProducts] = useState([]);

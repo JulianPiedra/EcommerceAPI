@@ -48,10 +48,26 @@
     cursor: pointer;
 }
 .search-input{
-
     width: 300px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 20px;
+}
+.quantity-control{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    margin-top: 10px;
+    gap: 5px;
+}
+.quantity-input{
+    width: 40px;
+}
+.add-to-cart-button{
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

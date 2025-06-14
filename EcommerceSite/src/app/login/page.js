@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { login } from '@/services/auth_service';
-import { useAuth } from '@/context/context';
-import '@/styles/login.css'; 
+import { useAuth } from '@/context/auth_context';
+import Link from 'next/link';
 export default function LoginPage() {
     const router = useRouter();
     const [error, setError] = useState('');
@@ -58,7 +58,7 @@ export default function LoginPage() {
                 {error && <p className="text-red-500 text-sm">{error}</p>}
 
                 <button className="form__submit-btn" type='submit'>Ingresar</button>
-                <a href="#" className="form__sign-up">Crear una Nueva Cuenta</a>
+                <Link href="/register" className="form__sign-up">Crear una Nueva Cuenta</Link>
             </form>
         </>
     );

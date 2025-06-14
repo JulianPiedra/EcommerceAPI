@@ -72,6 +72,8 @@ form {
     margin-top: 4px;
     position: relative;
     height: 36px;
+        width: 100%;
+
 }
 
 .form__input {

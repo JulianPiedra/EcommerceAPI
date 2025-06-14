@@ -13,15 +13,15 @@ export default class ApiClient {
     const isFormData = body instanceof FormData;
 
     const headers = {
-      ...(!isFormData && { 'Content-Type': 'application/json' }), 
+      ...(!isFormData && { 'Content-Type': 'application/json' }),
       ...extraHeaders,
     };
     if (token) headers.Authorization = `Bearer ${token}`;
 
     const opts = { method, headers };
     if (body !== undefined) {
-      opts.body = isFormData 
-        ? body 
+      opts.body = isFormData
+        ? body
         : JSON.stringify(body);
     }
     return opts;
@@ -41,6 +41,9 @@ export default class ApiClient {
       const err = new Error(data?.message || res.statusText);
       err.status = res.status;
       err.payload = data;
+      if (err.message === "Carrito vacío") {
+        throw err;
+      }
       import('@/utils/show_message').then(({ showToast }) => {
         showToast('error', err.message);
       });
@@ -59,6 +62,7 @@ export default class ApiClient {
   }
 
   put(endpoint, body, extraHeaders = {}) {
+
     return this.request(endpoint, 'PUT', body, extraHeaders);
   }
 

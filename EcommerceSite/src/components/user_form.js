@@ -1,11 +1,10 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import '@/styles/form.css';
 import { createUser, getUserById, updateUser } from '@/services/user_service';
 import { showToast } from '@/utils/show_message';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/context/context';
+import { useAuth } from '@/context/auth_context';
 
 export default function UserForm({ userId }) {
   const router = useRouter();

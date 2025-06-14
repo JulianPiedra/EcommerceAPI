@@ -1,16 +1,19 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import '../styles/navbar.css';
-import { useAuth } from '@/context/context';
+import { useCart } from '@/context/cart_context';
+import { useAuth } from '@/context/auth_context';
+import { ShoppingCart } from 'lucide-react';
+import { useState } from 'react';
+import CartDrawer from './cart';
 
 export default function Navbar() {
-  const pathname = usePathname();
-  const router = useRouter();
-  const {user, logout} = useAuth();
 
+  const { user, logout } = useAuth();
+  const { cart } = useCart();
+  const [open, setOpen] = useState(false);
+
+  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
 
 
@@ -23,7 +26,16 @@ export default function Navbar() {
             Cruds
           </Link>
         )}
-       
+        {user?.role === 'user' && (
+          <>
+            <div className="cart-icon" onClick={() => setOpen(!open)}>
+              <ShoppingCart color='white' />
+              {totalItems > 0 && <span className="cart-count">{totalItems}</span>}
+            </div>
+            <CartDrawer open={open} onClose={() => setOpen(false)} cart={cart} />
+          </>
+        )}
+
         {user ? (
           <>
             <div className="user-dropdown">
@@ -32,13 +44,14 @@ export default function Navbar() {
                 alt="User"
                 className="user-avatar"
               />
-              
+
               <span className="user-name">{user?.username}</span>
               <div className="dropdown-menu">
                 <button onClick={logout}>Cerrar sesión</button>
               </div>
             </div>
           </>
+
         ) : (
           <Link href="/login">Login</Link>
         )}

@@ -1,4 +1,5 @@
 const { Cart, Product } = require('../Database/Models');
+const product = require('../Database/Models/product');
 
 // Agregar producto al carrito
 exports.addToCart = async (req, res) => {
@@ -59,7 +60,7 @@ exports.getUserCart = async (req, res) => {
 // Eliminar un producto del carrito
 exports.removeFromCart = async (req, res) => {
   try {
-    const cartItem = await Cart.findByPk(req.params.id);
+      const cartItem = await Cart.findOne({ where: { product_id: req.params.id, user_id: req.user.id } });
 
     if (!cartItem) return res.status(404).json({ message: 'Elemento no encontrado' });
     if (cartItem.user_id !== req.user.id) return res.status(403).json({ message: 'No autorizado' });
