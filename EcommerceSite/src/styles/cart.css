@@ -12,10 +12,14 @@
   display: flex;
   flex-direction: column;
 }
+.cart-icon{
+  cursor: pointer;
+}
 
 .cart-header, .cart-drawer p {
   margin-bottom: 1rem;
   text-align: center;
+  font-size: large;
 }
 
 .cart-item {

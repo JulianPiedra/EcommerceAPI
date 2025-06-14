@@ -29,8 +29,7 @@ export default function Navbar() {
         {user?.role === 'user' && (
           <>
             <div className="cart-icon" onClick={() => setOpen(!open)}>
-              <ShoppingCart color='white' />
-              {totalItems > 0 && <span className="cart-count">{totalItems}</span>}
+              <ShoppingCart color='white'/>
             </div>
             <CartDrawer open={open} onClose={() => setOpen(false)} cart={cart} />
           </>
