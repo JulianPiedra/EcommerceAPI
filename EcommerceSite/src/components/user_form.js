@@ -37,7 +37,7 @@ export default function UserForm({ userId }) {
           username: user.username || '',
           email: user.email || '',
           role: user.role || '',
-          password: '', // Por seguridad, no cargamos contraseña
+          password: '', 
           confirmPassword: '',
         });
       })

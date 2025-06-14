@@ -1,4 +1,3 @@
-// middlewares/upload.js
 const multer = require('multer');
 const storage = multer.memoryStorage(); // Almacenamos la imagen en memoria
 const upload = multer({ storage });

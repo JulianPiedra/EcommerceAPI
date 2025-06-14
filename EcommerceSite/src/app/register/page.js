@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { register } from '@/services/auth_service';
-import { useAuth } from '@/context/auth_context';
 import Link from 'next/link';
 import { showToast } from '@/utils/show_message';
 
