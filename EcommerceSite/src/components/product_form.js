@@ -33,7 +33,7 @@ export default function ProductForm({ productId }) {
 
     const data = Object.fromEntries(formData);
     const file = formData.get('image');
-    if (!file || file.size === 0) formData.delete('image'); // Opcional
+    if (!file || file.size === 0) formData.delete('image');
 
     try {
       if (productId) {

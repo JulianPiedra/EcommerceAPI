@@ -1,4 +1,3 @@
-/* Reset Css */
 *,
 *::before,
 *::after {
@@ -17,7 +16,6 @@ input {
     border: none;
 }
 
-/* Variables */
 :root {
     --primary-color: #0070f3;
     --text-color: #DADADA;
@@ -25,7 +23,6 @@ input {
     --form-background: linear-gradient(to top, #0d0d0d, rgba(255, 255, 255, 0.1));
 }
 
-/* App Css */
 a:hover,
 button:hover {
     opacity: 0.8;
