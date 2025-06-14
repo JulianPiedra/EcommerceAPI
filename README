@@ -17,6 +17,7 @@ Plataforma de comercio electrónico construida con **Next.js 15.3.3"**, que incl
 - Subida de imágenes con `longblob`
 - Separación de vistas de usuario y administrador
 - Toasts personalizados para feedback de usuario
+- Responsive básico
 
 ## 🛠️ Instalación
 

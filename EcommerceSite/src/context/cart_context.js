@@ -1,6 +1,7 @@
 'use client';
 import { createContext, useContext, useEffect, useState } from 'react';
 import * as cartService from '@/services/cart_service';
+import { showToast } from '@/utils/show_message';
 
 const CartContext = createContext();
 
@@ -18,16 +19,18 @@ export function CartProvider({ children }) {
 
   const addToCart = async (productId, quantity = 1) => {
     await cartService.addToCart(productId, quantity);
+    showToast('success', 'Producto agregado al carrito');
     loadCart();
   };
 
   const removeFromCart = async (productId) => {
     await cartService.removeFromCart(productId);
+    showToast('success', 'Producto eliminado del carrito');
     loadCart();
   };
   const deleteCart = async () => {
-    console.log('Borrando carrito...');
     await cartService.deleteCart();
+    showToast('success', 'Carrito eliminado');
     loadCart();
   };
 
